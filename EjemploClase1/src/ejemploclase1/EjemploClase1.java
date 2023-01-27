@@ -3,6 +3,9 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Main.java to edit this template
  */
 package ejemploclase1;
+import java.util.Scanner;
+import static java.lang.Integer.parseInt;
+import static java.lang.Double.parseDouble;
 
 /**
  *
@@ -65,7 +68,7 @@ public class EjemploClase1 {
         arreglo2[0] = 56;        
         System.out.println(arreglo2[0]);
         
-        int [][] matriz = new int [3][20];
+        int [][] matriz = new int [3][5];
         
         /*
             0,0  0,1    5 0
@@ -75,7 +78,7 @@ public class EjemploClase1 {
         //     fila, columna
         matriz[0][0] = 5;
         
-        System.out.println(matriz[0][19]);
+        System.out.println(matriz[0][0]);
         
         /*
         for
@@ -118,9 +121,101 @@ public class EjemploClase1 {
             System.out.println("Seguimos el programa");
         }
         
+        int val1 = 2;
+        switch (val1) {
+            case 0:
+                System.out.println("Primera posicion");
+                break;
+            case 1:
+                System.out.println("Primera segunda");
+                break;
+            case 2:
+                System.out.println("Primera tercera");
+                break;
+            default:
+                System.out.println("Ultima posicion");
+        }      
+        
+        char val2 = 'a';
+        
+        switch (val2) {
+            case 'a':
+                System.out.println(val2);
+                break;
+            default:
+                System.out.println("Fin");
+        }
+        
+        
+        System.out.println("Valores del arreglo");
+        for (int i = 0; i < 5; i++) {
+            System.out.println(arreglo2[i]);
+        }
+        
+        
+        System.out.println("Mostrando el contenido de la matriz");
+        matriz[1][2] = 15;
+        
+        for (int i = 0; i < 3; i++) {
+            System.out.print("Fila "+(i+1)+"    ");
+            for (int j = 0; j < 3; j++) {
+                System.out.print(matriz[i][j]);
+                System.out.print("-");
+            }
+            System.out.println("");
+        }
+        
+        
+        /*
+        Obteniendo valores desde el teclado
+        */
+        
+        Scanner entrada = new Scanner(System.in);
+        
+        String texto = "";
+        
+        System.out.println("Ingrese su cadena de texto");
+        texto = entrada.nextLine();
+        System.out.println("Ingresamos lo siguiente " + texto);
+        
+        
+        System.out.println("Ingrese un numero: ");
+        texto = entrada.nextLine();
+        
+        // Realizando casteo
+        int numeroIn = parseInt(texto);
+        
+        numeroIn = numeroIn * 2;
+        System.out.println("El valor de numeroIn es "+numeroIn);
+        
+        String val3 = obtenerValorArray(numeroIn); // "asjskags"
+        
+        System.out.println(val3);
+        
+        mostraDatosArray(arreglo2);
+        
+        int [] arr2 = new int[8];
+        mostraDatosArray(arr2);
+        
+        System.out.println( matriz.length);
+        System.out.println( matriz[0].length);
         
     }
     
+    public static void mostraDatosArray(int [] arr)
+    {
+        System.out.println("Estamos imprimiendo los datos del arrglo de tamano "+arr.length);
+        for (int i = 0; i < arr.length; i++) {
+            System.out.println(arr[i]);
+        }
+    }
     
-    
+    /* Devuelve un valor*/
+    public static String obtenerValorArray(int i)
+    {
+        if(i==1){
+            return "Es el primer valor";
+        }
+        return "No esta en las opciones";
+    }
 }
