@@ -36,6 +36,7 @@
 >   **Pasos para la configuracion**
 > 
 >   - *Clic en el logo de Windows y luego seleccionar configuración*
+> 
 > ![Texto alternativo](./Images/instalarJDK/img5.png)
 > ***
 >   - *Luego buscar la opcion de **Sistema** y dar clic sobre ella*
