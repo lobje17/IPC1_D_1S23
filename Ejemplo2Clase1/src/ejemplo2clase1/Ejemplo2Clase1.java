@@ -29,7 +29,37 @@ public class Ejemplo2Clase1 {
     /*Metodo principal*/
     public static void main(String[] args) {
         // TODO code application logic here
-        juego();
+        int a = 10;
+        
+        System.out.println(a);
+        
+        a = a + 5;
+        System.out.println(a);
+        
+        a += 5;
+        System.out.println(a);
+        
+        
+        a = a - 5;
+        System.out.println(a);
+        
+        a -= 5;
+        System.out.println(a);
+        
+        //juego();
+    }
+    
+    public void B()
+    {
+        int a = 10;
+        
+        System.out.println(a);
+        a++;
+        System.out.println(a);
+        
+        for (int i = 0; i < 10; ++i) {
+            
+        }
     }
     
     /*Metodo el en cual se ejecutara el juego*/
