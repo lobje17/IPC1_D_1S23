@@ -15,23 +15,31 @@ public class Ejemplo1Clase2 {
      */
     /*Declaracion global*/
     public static int []nuevo = new int[2];
+    
+    
     public static void main(String[] args) {
         // TODO code application logic here
-        System.out.println("AAAAAAAAaa");
-       a(false);
-        a(true);
+        System.out.println(factorial(4));
     }
     
+    /*
+        4*3*2*1 
     
-    public static void a(boolean verDatos)
+    */
+    
+    public static int factorial(int numero)
     {
-        if(verDatos)
+        if(numero<0)
         {
-            System.out.println(nuevo[1]);
+            return 0;
+        }
+        if(numero==0)
+        {
+            return 1;
         }
         else
         {
-            nuevo[1] = 20;
+            return numero * factorial(numero-1);
         }
     }
 }
