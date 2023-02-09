@@ -16,9 +16,56 @@ public class EjemploClase1 {
     /**
      * @param args the command line arguments
      */
+    public static String [] a = {"a", "b", "c", "d"};
+    public static String [] b = new String [4];
+    
     public static void main(String[] args) {
         // TODO code application logic here
-        System.out.print("Hola mundo");
+//        b[0] = a[0];
+//        System.out.println(a[0]);
+//        System.out.println(b[0]);
+//        b[0] = "jajaja";
+//        
+//        System.out.println(a[0]);
+//        System.out.println(b[0]);
+        
+//        Scanner entrada = new Scanner(System.in);
+//        Scanner entrada2 = new Scanner(System.in);
+//        String a = "";
+//        int b = 0;
+//        a = entrada.nextLine();
+//        System.out.println("Aqui 1 "+a);
+//        b = entrada.nextInt();
+//        System.out.println("Aqui 2 "+b);
+//        System.out.println("KKKK");
+//        System.out.println("KKKK");
+//        String c = "";
+//        c = entrada.next();
+//        System.out.println("Aqui 3"+c);
+        
+
+        String [][] datos = {{"1.0", "2.0"}, {"12.0", "265.0"}, {"127.0", "26.0"}};
+        
+        double [][]nuevosDatos = cambioADouble(datos);
+        
+        System.out.println("Se sumaron los datos recibidos "+(nuevosDatos[0][1]*nuevosDatos[1][1]));
+    }
+    
+    public static double [][] cambioADouble(String [][] datos)
+    {
+        double [][]nuevosDatos = new double[3][2];
+        for (int i = 0; i < datos.length; i++) {
+            
+            System.out.println(datos[i][0]+"   "+datos[i][1]);
+            
+                nuevosDatos[i][0] = Double.parseDouble(datos[i][0]);
+                nuevosDatos[i][1] = Double.parseDouble(datos[i][1]);
+        }
+        return nuevosDatos;
+    }
+    
+    public static void general()
+    {System.out.print("Hola mundo");
         System.out.print("Hola mundo");
         
         int numero = 10;
@@ -199,7 +246,6 @@ public class EjemploClase1 {
         
         System.out.println( matriz.length);
         System.out.println( matriz[0].length);
-        
     }
     
     public static void mostraDatosArray(int [] arr)
