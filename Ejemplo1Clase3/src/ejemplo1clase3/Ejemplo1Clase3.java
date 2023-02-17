@@ -325,6 +325,7 @@ public class Ejemplo1Clase3 {
         
         int notaActual = 0;
         int notaSiguiente = 0;
+        
         for (int i = 0; i < idEstudiantes-1; i++) {
             notaActual = Integer.parseInt(estudiantes[i][3]);
             for (int j = i + 1; j < idEstudiantes; j++) {
@@ -346,6 +347,7 @@ public class Ejemplo1Clase3 {
                     estudiantes[j][2] = edad;
                     estudiantes[j][3] = promedio;
                     
+                    notaActual = notaSiguiente;
                 }
             }
         }
