@@ -4,7 +4,10 @@
  */
 package InterfazGrafica.ventas;
 
+import InterfazGrafica.Admin.AdminCategoria;
 import InterfazGrafica.Admin.AdminCupon;
+import InterfazGrafica.Admin.AdminProducto;
+import Objetos.Categoria.ListaCategorias;
 import Objetos.ListaCupones;
 
 /**
@@ -13,8 +16,12 @@ import Objetos.ListaCupones;
  */
 public class Administrador extends javax.swing.JFrame {
 
+    AdminCategoria panelCategoria;
     AdminCupon panelCupon;
+    AdminProducto panelProductos;
+    
     ListaCupones cupones;
+    ListaCategorias categorias;
     /**
      * Creates new form Administrador
      */
@@ -23,7 +30,8 @@ public class Administrador extends javax.swing.JFrame {
         addPanels();
     }
     
-    public void setListas(ListaCupones cupones){
+    public void setListas(ListaCategorias categorias, ListaCupones cupones){
+        this.categorias = categorias;
         this.cupones = cupones;
         actualizarListas();
     }
@@ -31,15 +39,27 @@ public class Administrador extends javax.swing.JFrame {
     private void addPanels(){
         this.panelCupon = new AdminCupon();
         this.panelCupon.setVisible(true);
-        this.setSize(670, 350);
+        this.panelCupon.setSize(670, 350);
+        
+        this.panelCategoria = new AdminCategoria();
+        this.panelCupon.setVisible(true);
+        this.panelCupon.setSize(670, 350);
+        
+        this.panelProductos = new AdminProducto();
+        this.panelProductos.setVisible(true);
+        this.panelProductos.setSize(670, 350);
         
         this.tabAdmin.addTab("Cupones", this.panelCupon);
+        this.tabAdmin.addTab("Categorias", this.panelCategoria);
+        this.tabAdmin.addTab("Categorias", this.panelProductos);
         this.setSize(850, 500);
     }
 
     private void actualizarListas()
     {
         this.panelCupon.setListas(this.cupones);
+        this.panelCategoria.setListas(this.categorias);
+        this.panelProductos.setListas(categorias);
     }
     /**
      * This method is called from within the constructor to initialize the form.
@@ -55,6 +75,12 @@ public class Administrador extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
+        tabAdmin.addChangeListener(new javax.swing.event.ChangeListener() {
+            public void stateChanged(javax.swing.event.ChangeEvent evt) {
+                tabAdminStateChanged(evt);
+            }
+        });
+
         jLabel1.setFont(new java.awt.Font("Times New Roman", 3, 18)); // NOI18N
         jLabel1.setText("Administrado");
 
@@ -69,7 +95,7 @@ public class Administrador extends javax.swing.JFrame {
             .addGroup(layout.createSequentialGroup()
                 .addGap(333, 333, 333)
                 .addComponent(jLabel1)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(294, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -83,6 +109,10 @@ public class Administrador extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void tabAdminStateChanged(javax.swing.event.ChangeEvent evt) {//GEN-FIRST:event_tabAdminStateChanged
+        // TODO add your handling code here:
+    }//GEN-LAST:event_tabAdminStateChanged
 
     /**
      * @param args the command line arguments

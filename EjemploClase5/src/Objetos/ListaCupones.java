@@ -65,4 +65,13 @@ public class ListaCupones {
         }
         return -1;
     }
+    
+    /**/
+    public int cantidad(){
+        return this.listCupon.size();
+    }
+    
+    public Cupon getCupon(int i){
+        return this.listCupon.get(i);
+    }
 }

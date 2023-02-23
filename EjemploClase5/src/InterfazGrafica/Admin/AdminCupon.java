@@ -4,8 +4,10 @@
  */
 package InterfazGrafica.Admin;
 
+import Objetos.Cupon;
 import Objetos.ListaCupones;
 import javax.swing.JOptionPane;
+import javax.swing.table.DefaultTableModel;
 
 /**
  *
@@ -18,6 +20,7 @@ public class AdminCupon extends javax.swing.JPanel {
     private double  porcentaje;
     
     ListaCupones cupones;
+    DefaultTableModel modelo;
     /**
      * Creates new form AdminCupon
      */
@@ -27,6 +30,7 @@ public class AdminCupon extends javax.swing.JPanel {
     
     public void setListas(ListaCupones cupones){
         this.cupones = cupones;
+        llenarTabla();
     }
 
     /**
@@ -46,7 +50,7 @@ public class AdminCupon extends javax.swing.JPanel {
         txtPorcentaje = new javax.swing.JTextField();
         btnAceptar = new javax.swing.JButton();
         jScrollPane1 = new javax.swing.JScrollPane();
-        jTable1 = new javax.swing.JTable();
+        tablaCupones = new javax.swing.JTable();
 
         jPanel1.setPreferredSize(new java.awt.Dimension(310, 350));
 
@@ -105,7 +109,7 @@ public class AdminCupon extends javax.swing.JPanel {
                 .addContainerGap(130, Short.MAX_VALUE))
         );
 
-        jTable1.setModel(new javax.swing.table.DefaultTableModel(
+        tablaCupones.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null},
                 {null, null},
@@ -116,7 +120,7 @@ public class AdminCupon extends javax.swing.JPanel {
                 "Title 1", "Title 2"
             }
         ));
-        jScrollPane1.setViewportView(jTable1);
+        jScrollPane1.setViewportView(tablaCupones);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
@@ -157,7 +161,8 @@ public class AdminCupon extends javax.swing.JPanel {
         
         switch (result) {
             case 1:
-                mensaje("Registrado");                
+                mensaje("Registrado");     
+                addRowTable(cupones.cantidad(), codigo, porc);
                 break;
             case 2:
                 mensaje("El codigo "+codigo+" ya existe");
@@ -169,23 +174,19 @@ public class AdminCupon extends javax.swing.JPanel {
                 mensaje("El rango es de 1-99");
                 break;
         }
-    }
-    private boolean isPorcentaje(){
-        try {
-            this. porcentaje = Double.parseDouble(this.porc);
-            return true;
-        } catch (Exception e) {
-            mensaje("El campo de codigo solo acepta numero");
-            return false;
-        }
+        
+        this.txtCodigo.setText("");
+        this.txtPorcentaje.setText("");
     }
     
-    private double getPorcentaje(){
+    private boolean isPorcentaje(){
         try {
-            return Double.parseDouble(this.porc);
+            this.porcentaje = Double.parseDouble(this.porc);
+            //Integer.parseInt(porc);
+            return true;
         } catch (Exception e) {
-            mensaje("El campo de codigo solo acepta numero");
-            return -1;
+            mensaje("El campo de porcentaje solo acepta numero");
+            return false;
         }
     }
     
@@ -204,6 +205,32 @@ public class AdminCupon extends javax.swing.JPanel {
         return true;
     }
     
+    /****************************************************************
+     */
+    
+    private void llenarTabla(){
+        this.modelo = new DefaultTableModel();
+        modelo.addColumn("Id");
+        modelo.addColumn("Codigo");
+        modelo.addColumn("Porcentaje");
+                
+        int cantidad = this.cupones.cantidad();
+        Cupon tmp;
+        for (int i = 0; i < cantidad; i++) {
+            tmp = this.cupones.getCupon(i);
+            addRowTable(i, codigo, porc);
+        }
+        
+        this.tablaCupones.setModel(modelo);
+        this.tablaCupones.getColumnModel().getColumn(0).setMaxWidth(15);
+        this.tablaCupones.getColumnModel().getColumn(1).setPreferredWidth(100);
+    }
+    
+    private void addRowTable(int id, String codigo, String porcentaje){
+        modelo.addRow(new Object[]{String.valueOf(id), codigo, porcentaje});
+        this.tablaCupones.setModel(modelo);
+    }
+    
     private void mensaje(String mensaje){
         JOptionPane.showMessageDialog(null, mensaje);
     }
@@ -214,7 +241,7 @@ public class AdminCupon extends javax.swing.JPanel {
     private javax.swing.JLabel jLabel3;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JTable jTable1;
+    private javax.swing.JTable tablaCupones;
     private javax.swing.JTextField txtCodigo;
     private javax.swing.JTextField txtPorcentaje;
     // End of variables declaration//GEN-END:variables

@@ -5,6 +5,7 @@
 package ejemploclase5;
 
 import InterfazGrafica.ventas.Administrador;
+import Objetos.Categoria.ListaCategorias;
 import Objetos.ListaCupones;
 
 /**
@@ -19,10 +20,11 @@ public class EjemploClase5 {
     public static void main(String[] args) {
         // TODO code application logic here
         ListaCupones cupones = new ListaCupones();
+        ListaCategorias categorias = new ListaCategorias();
         
         Administrador admin = new Administrador();
         admin.setVisible(true);
-        admin.setListas(cupones);
+        admin.setListas(categorias, cupones);
         
     }
     
