@@ -15,7 +15,7 @@
 >           - Métodos de ordenamiento de arreglos
 >           - Ejemplo practico de lo descrito anteriormente
 >       ***
->       - [**Clase No. 1 - Ejemplo 2 - Contenido**](ttps://drive.google.com/file/d/1FgIDKgyAbZufpe--zQ-ttpND0tTbq7eK/view?usp=sharing )
+>       - [**Clase No. 1 - Ejemplo 2 - Contenido**](ttps://drive.google.com/file/d/1FgIDKgyAbZufpe--zQ-ttpND0tTbq7eK/view?usp=sharing)
 >           - Comentario
 >           - Variables
 >           - Arreglos
@@ -80,7 +80,7 @@
 > ***
 >
 >   - ## **Practicas**
->       - [**Explicacion practica No. 1**](https://drive.google.com/file/d/1IHsXT-yJWI9oEOfc8fYOH03L5TvY-eTG/view )
+>       - [**Explicacion practica No. 1**](https://drive.google.com/file/d/1IHsXT-yJWI9oEOfc8fYOH03L5TvY-eTG/view)
 >   - ## **Proyectos**
 >       - [**Explicación Proyecto No. 1**](https://drive.google.com/file/d/1DYkcjk_rktgyVYBc2P4OQutjvn5L2gwy/view)
 >
