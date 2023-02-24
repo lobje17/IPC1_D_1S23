@@ -15,7 +15,7 @@
 >           - Métodos de ordenamiento de arreglos
 >           - Ejemplo practico de lo descrito anteriormente
 >       ***
->       - [**Clase No. 1 - Ejemplo 2 - Contenido**](ttps://drive.google.com/file/d/1FgIDKgyAbZufpe--zQ-ttpND0tTbq7eK/view?usp=sharing)
+>       - [**Clase No. 1 - Ejemplo 2 - Contenido**](https://drive.google.com/file/d/1FgIDKgyAbZufpe--zQ-ttpND0tTbq7eK/view?usp=sharing)
 >           - Comentario
 >           - Variables
 >           - Arreglos
