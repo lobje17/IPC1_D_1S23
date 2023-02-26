@@ -2,6 +2,9 @@
 # ***Introducción a la Programación y Computación 1***
 # ***Sección D 1er. Semestre 2023***
 ***
+>   - ## **Meet**
+>       - [**Enlace**](https://meet.google.com/hno-cfzy-xaf?authuser=1)
+> 
 >   - ## **Grabaciones**
 >       ***
 >       ***
@@ -81,21 +84,11 @@
 >
 >   - ## **Practicas**
 >       - [**Explicacion practica No. 1**](https://drive.google.com/file/d/1IHsXT-yJWI9oEOfc8fYOH03L5TvY-eTG/view)
+> ***
+> ***
+> ***
 >   - ## **Proyectos**
 >       - [**Explicación Proyecto No. 1**](https://drive.google.com/file/d/1DYkcjk_rktgyVYBc2P4OQutjvn5L2gwy/view)
->
->
->
->
->
->
->
->
->
->
->
->
->
->
->
->
+> ***
+> ***
+> ***
