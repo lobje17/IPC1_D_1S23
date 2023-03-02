@@ -1,5 +1,6 @@
 # ***Descarga, Instalacion y Configuracion de GitKraken***
-
+> 
+> *GitKraken es una herramienta que nos permite*
 > ### **Descargar el instalador de acuerdo al sistema operativo a usar**
 > 
 > [*Enlace de descarga de Git Kraken*](https://www.gitkraken.com/download)
@@ -54,6 +55,24 @@
 >   - *Se mostraran todos los cambion realizados y agregados al repositorio remoto*
 > 
 > ![Texto alternativo](./Images/img5.jpg)
+> 
+> ***
+> ***
+> 
+> # ***Formade agregar archivos o un Proyecto al repositorio***
+> 
+>   - *Ubicarse en la carpeta que se creo al clonar el repositorio*
+> 
+> ![Texto alternativo](./Images/img13.jpg)
+> ***
+> 
+>   - *Buscar la carpeta del proyecto o archivos a agregar al repositorio*
+> 
+> ![Texto alternativo](./Images/img14.jpg)
+>
+>   - *Copiar la carpeta o archivos a la carpeta del repositorio*
+> 
+> ![Texto alternativo](./Images/img15.jpg)
 > 
 > ***
 > ***
