@@ -495,10 +495,6 @@ public class VentanaP extends javax.swing.JFrame {
             ImageIcon imgI = new ImageIcon(img);
             cuadro.setIcon(imgI);
         }
-        else{
-            cuadro.removeAll();
-            cuadro.setText("Sin foto");
-        }
     }
     
     /* *********************************************************************************** *
