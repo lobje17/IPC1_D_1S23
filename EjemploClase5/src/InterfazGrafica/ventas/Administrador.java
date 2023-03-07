@@ -112,6 +112,8 @@ public class Administrador extends javax.swing.JFrame {
 
     private void tabAdminStateChanged(javax.swing.event.ChangeEvent evt) {//GEN-FIRST:event_tabAdminStateChanged
         // TODO add your handling code here:
+        System.out.println("Estoy aqui");
+        if(this.cupones!=null && this.categorias!=null ) actualizarListas();
     }//GEN-LAST:event_tabAdminStateChanged
 
     /**
