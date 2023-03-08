@@ -56,7 +56,6 @@ public class AdminProducto extends javax.swing.JPanel {
         btnAceptar = new javax.swing.JButton();
         opcionCat = new javax.swing.JComboBox<>();
         jLabel5 = new javax.swing.JLabel();
-        ActualizarCat = new javax.swing.JButton();
         jScrollPane1 = new javax.swing.JScrollPane();
         jTable1 = new javax.swing.JTable();
 
@@ -70,12 +69,6 @@ public class AdminProducto extends javax.swing.JPanel {
 
         jLabel4.setText("Cantidad");
 
-        txtNombre.setText("jTextField1");
-
-        txtPrecio.setText("jTextField2");
-
-        txtCantidad.setText("jTextField3");
-
         btnAceptar.setText("Aceptar");
         btnAceptar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -86,13 +79,6 @@ public class AdminProducto extends javax.swing.JPanel {
         opcionCat.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
 
         jLabel5.setText("Categoria");
-
-        ActualizarCat.setText("jButton1");
-        ActualizarCat.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                ActualizarCatActionPerformed(evt);
-            }
-        });
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -108,20 +94,18 @@ public class AdminProducto extends javax.swing.JPanel {
                             .addComponent(jLabel4)
                             .addComponent(jLabel5))
                         .addGap(39, 39, 39)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(txtCantidad, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(txtPrecio, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(txtNombre, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(opcionCat, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(txtCantidad)
+                            .addComponent(txtPrecio)
+                            .addComponent(txtNombre)
+                            .addComponent(opcionCat, 0, 102, Short.MAX_VALUE)))
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGap(139, 139, 139)
                         .addComponent(jLabel1))
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(122, 122, 122)
-                        .addComponent(btnAceptar)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(ActualizarCat)))
-                .addContainerGap(66, Short.MAX_VALUE))
+                        .addGap(131, 131, 131)
+                        .addComponent(btnAceptar)))
+                .addContainerGap(68, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -145,9 +129,7 @@ public class AdminProducto extends javax.swing.JPanel {
                     .addComponent(opcionCat, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel5))
                 .addGap(18, 18, 18)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(btnAceptar)
-                    .addComponent(ActualizarCat))
+                .addComponent(btnAceptar)
                 .addContainerGap(56, Short.MAX_VALUE))
         );
 
@@ -171,7 +153,7 @@ public class AdminProducto extends javax.swing.JPanel {
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 138, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 133, Short.MAX_VALUE)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 309, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
         );
@@ -193,12 +175,6 @@ public class AdminProducto extends javax.swing.JPanel {
         
         registra();
     }//GEN-LAST:event_btnAceptarActionPerformed
-
-    private void ActualizarCatActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ActualizarCatActionPerformed
-        // TODO add your handling code here:
-        
-        llegarOpcionCategoria();
-    }//GEN-LAST:event_ActualizarCatActionPerformed
 
     private void registra(){
         if(camposLlenos()){
@@ -240,15 +216,15 @@ public class AdminProducto extends javax.swing.JPanel {
     
     private boolean isPrecio(){
         try {
-            precio = Integer.parseInt(precioTxt);
+            precio = Double.parseDouble(precioTxt);
             return true;
         } catch (Exception e) {
-            mensaje("La precio debe ser un numero");
+            mensaje("La precio debe ser un numero entero o con punto decimal");
             return false;
         }
     }
     
-    private void llegarOpcionCategoria(){
+    public void llegarOpcionCategoria(){
         this.opcionCat.removeAllItems();
         int cantidad = this.categorias.cantidad();
         for (int i = 0; i < cantidad; i++) {
@@ -261,7 +237,6 @@ public class AdminProducto extends javax.swing.JPanel {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton ActualizarCat;
     private javax.swing.JButton btnAceptar;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;

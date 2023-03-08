@@ -166,7 +166,7 @@ public class AdminCategoria extends javax.swing.JPanel {
     /****************************************************************
      */
     
-    private void llenarTabla(){
+    public void llenarTabla(){
         this.modelo = new DefaultTableModel();
         modelo.addColumn("Id");
         modelo.addColumn("Nombre");

@@ -27,39 +27,44 @@ public class Administrador extends javax.swing.JFrame {
      */
     public Administrador() {
         initComponents();
-        addPanels();
     }
     
     public void setListas(ListaCategorias categorias, ListaCupones cupones){
         this.categorias = categorias;
         this.cupones = cupones;
-        actualizarListas();
+        addPanels();
     }
     
     private void addPanels(){
         this.panelCupon = new AdminCupon();
+        this.panelCupon.setListas(this.cupones);
         this.panelCupon.setVisible(true);
         this.panelCupon.setSize(670, 350);
         
         this.panelCategoria = new AdminCategoria();
-        this.panelCupon.setVisible(true);
-        this.panelCupon.setSize(670, 350);
+        this.panelCategoria.setListas(this.categorias);
+        this.panelCategoria.setVisible(true);
+        this.panelCategoria.setSize(670, 350);
         
         this.panelProductos = new AdminProducto();
+        this.panelProductos.setListas(this.categorias);
         this.panelProductos.setVisible(true);
         this.panelProductos.setSize(670, 350);
         
         this.tabAdmin.addTab("Cupones", this.panelCupon);
         this.tabAdmin.addTab("Categorias", this.panelCategoria);
-        this.tabAdmin.addTab("Categorias", this.panelProductos);
+        this.tabAdmin.addTab("Productos", this.panelProductos);
         this.setSize(850, 500);
+        //actualizarListas();
     }
 
     private void actualizarListas()
     {
-        this.panelCupon.setListas(this.cupones);
-        this.panelCategoria.setListas(this.categorias);
-        this.panelProductos.setListas(categorias);
+        //this.panelCupon.setListas(this.cupones);
+        //this.panelCategoria.setListas(this.categorias);
+        //this.panelProductos.setListas(this.categorias);
+        this.panelProductos.llegarOpcionCategoria();
+        this.panelCategoria.llenarTabla();
     }
     /**
      * This method is called from within the constructor to initialize the form.
@@ -75,6 +80,7 @@ public class Administrador extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
+        tabAdmin.setTabPlacement(javax.swing.JTabbedPane.LEFT);
         tabAdmin.addChangeListener(new javax.swing.event.ChangeListener() {
             public void stateChanged(javax.swing.event.ChangeEvent evt) {
                 tabAdminStateChanged(evt);
@@ -90,12 +96,12 @@ public class Administrador extends javax.swing.JFrame {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(tabAdmin)
+                .addComponent(tabAdmin, javax.swing.GroupLayout.DEFAULT_SIZE, 705, Short.MAX_VALUE)
                 .addContainerGap())
             .addGroup(layout.createSequentialGroup()
                 .addGap(333, 333, 333)
                 .addComponent(jLabel1)
-                .addContainerGap(294, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -112,6 +118,8 @@ public class Administrador extends javax.swing.JFrame {
 
     private void tabAdminStateChanged(javax.swing.event.ChangeEvent evt) {//GEN-FIRST:event_tabAdminStateChanged
         // TODO add your handling code here:
+        //System.out.println("Aqui");
+        actualizarListas();
     }//GEN-LAST:event_tabAdminStateChanged
 
     /**
