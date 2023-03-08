@@ -15,6 +15,18 @@ public class ListaCategorias {
 
     public ListaCategorias() {
         this.categorias = new ArrayList<>();
+        this.datosDefault();
+    }
+    
+    private void datosDefault(){
+        registroCategoria("uno");
+        registroCategoria("dos");
+        registroProduct("uno","uno1", 10, 10);
+        registroProduct("uno","uno2", 15, 15);
+        registroProduct("uno","uno3", 20, 20);
+        registroProduct("dos","dos1", 10, 10);
+        registroProduct("dos","dos2", 15, 15);
+        registroProduct("dos","dos3", 20, 20);
     }
     
     public boolean registroCategoria(String nombre){
@@ -48,6 +60,13 @@ public class ListaCategorias {
     /**/
     public int cantidad(){
         return this.categorias.size();
+    }
+    
+    
+    public Categoria getCategoria(String nombre){
+        int i = existCategoria(nombre);
+        if(i>-1) return this.categorias.get(i);
+        return null;
     }
     
     public Categoria getCategoria(int i){

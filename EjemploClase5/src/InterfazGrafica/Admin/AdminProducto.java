@@ -4,7 +4,10 @@
  */
 package InterfazGrafica.Admin;
 
+import Objetos.Categoria.Categoria;
 import Objetos.Categoria.ListaCategorias;
+import Objetos.Producto.ListaProductos;
+import Objetos.Producto.Producto;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 
@@ -21,6 +24,8 @@ public class AdminProducto extends javax.swing.JPanel {
     
     private double precio;
     private int cantidad;
+    /* VARIABLE USADA PARA MOSTRAR EL NUMERO DE PRODUCTOS REGISTRADOS*/
+    private int No_;
     
     DefaultTableModel modelo;
     /**
@@ -33,7 +38,7 @@ public class AdminProducto extends javax.swing.JPanel {
     public void setListas(ListaCategorias categorias){
         this.categorias = categorias;
         llegarOpcionCategoria();
-        //llenarTabla();
+        llenarTabla();
     }     
 
     /**
@@ -57,11 +62,12 @@ public class AdminProducto extends javax.swing.JPanel {
         opcionCat = new javax.swing.JComboBox<>();
         jLabel5 = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
-        jTable1 = new javax.swing.JTable();
+        tableProductos = new javax.swing.JTable();
 
         jPanel1.setBackground(new java.awt.Color(51, 153, 0));
 
-        jLabel1.setText("Registrar");
+        jLabel1.setFont(new java.awt.Font("Times New Roman", 3, 18)); // NOI18N
+        jLabel1.setText("Registrar producto");
 
         jLabel2.setText("Nombre");
 
@@ -100,40 +106,41 @@ public class AdminProducto extends javax.swing.JPanel {
                             .addComponent(txtNombre)
                             .addComponent(opcionCat, 0, 102, Short.MAX_VALUE)))
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(139, 139, 139)
-                        .addComponent(jLabel1))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGap(131, 131, 131)
                         .addComponent(btnAceptar)))
-                .addContainerGap(68, Short.MAX_VALUE))
+                .addContainerGap(39, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                .addGap(0, 0, Short.MAX_VALUE)
+                .addComponent(jLabel1)
+                .addGap(96, 96, 96))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(30, 30, 30)
+                .addGap(34, 34, 34)
                 .addComponent(jLabel1)
-                .addGap(56, 56, 56)
+                .addGap(52, 52, 52)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel2)
                     .addComponent(txtNombre, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(33, 33, 33)
+                .addGap(18, 18, 18)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 19, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(txtPrecio, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(37, 37, 37)
+                    .addComponent(txtPrecio, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 19, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel4)
-                    .addComponent(txtCantidad, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(txtCantidad, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel4))
                 .addGap(18, 18, 18)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(opcionCat, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel5))
-                .addGap(18, 18, 18)
+                .addGap(53, 53, 53)
                 .addComponent(btnAceptar)
-                .addContainerGap(56, Short.MAX_VALUE))
+                .addContainerGap(51, Short.MAX_VALUE))
         );
 
-        jTable1.setModel(new javax.swing.table.DefaultTableModel(
+        tableProductos.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null},
                 {null},
@@ -144,28 +151,26 @@ public class AdminProducto extends javax.swing.JPanel {
                 "Title 1"
             }
         ));
-        jScrollPane1.setViewportView(jTable1);
+        jScrollPane1.setViewportView(tableProductos);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
+                .addGap(22, 22, 22)
                 .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 133, Short.MAX_VALUE)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 309, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 417, Short.MAX_VALUE)
                 .addContainerGap())
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(21, 21, 21)
-                        .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
@@ -181,7 +186,22 @@ public class AdminProducto extends javax.swing.JPanel {
             if(isCantidad()){
                 if(isPrecio()){
                         int result = this.categorias.registroProduct(this.opcionCat.getSelectedItem().toString(), nombre, precio, cantidad);
-                        mensaje("Ok "+result);
+                        
+                        switch (result) {
+                            case 1:
+                                mensaje("Registrado"); 
+                                break;
+                            case 2:
+                                mensaje("La cantidad debe ser mayor a cero");
+                                break;
+                            case 3:
+                                mensaje("El precio debe ser mayor a cero");
+                                break;
+                            case 4:
+                                mensaje("El producto "+nombre+" ya existe");
+                                break;
+                        }
+                        llenarTabla();
                 }
             }
         }
@@ -232,6 +252,53 @@ public class AdminProducto extends javax.swing.JPanel {
         }
     }
     
+    /* ******************************************************************************************************************
+     * ******************************************************************************************************************
+     * ****************************************************************************************************************** */
+    
+    public void llenarTabla(){
+        this.modelo = new DefaultTableModel();
+        modelo.addColumn("No.");
+        modelo.addColumn("Nombre");
+        modelo.addColumn("Cantidad");
+        modelo.addColumn("Precio");
+        modelo.addColumn("Categoria");
+                
+        int cantidad = this.categorias.cantidad();
+        No_ = 0;
+        Categoria tmp;
+        for (int i = 0; i < cantidad; i++) {
+            tmp = this.categorias.getCategoria(i);
+            //addRowTable(i, codigo, porc);
+            //addRowTable(i, tmp.getNombre(), tmp.getProductos().Cantidad());
+            llenarTablaPorCategoria(tmp.getProductos(), tmp.getNombre());
+        }
+        
+        this.tableProductos.setModel(modelo);
+        this.tableProductos.getColumnModel().getColumn(0).setMaxWidth(30);
+    }
+    
+    
+    public void llenarTablaPorCategoria(ListaProductos productos, String categoria){
+                
+        int cantidad = productos.Cantidad();
+        Producto tmp;
+        for (int i = 0; i < cantidad; i++) {
+            tmp = productos.Obtener(i);
+            //addRowTable(i, codigo, porc);
+            No_++;
+            addRowTable(No_, tmp.getNombre(), tmp.getCantidad(), tmp.getPrecio(), categoria);
+        }
+    }
+    
+    private void addRowTable(int id, String nombre, int cantidad, double precio, String categoria){
+        modelo.addRow(new Object[]{String.valueOf(id), nombre, String.valueOf(cantidad), String.valueOf(precio), categoria});
+        this.tableProductos.setModel(modelo);
+    }
+    
+    /* ******************************************************************************************************************
+     * ******************************************************************************************************************
+     * ****************************************************************************************************************** */
     private void mensaje(String mensaje){
         JOptionPane.showMessageDialog(null, mensaje);
     }
@@ -245,8 +312,8 @@ public class AdminProducto extends javax.swing.JPanel {
     private javax.swing.JLabel jLabel5;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JTable jTable1;
     private javax.swing.JComboBox<String> opcionCat;
+    private javax.swing.JTable tableProductos;
     private javax.swing.JTextField txtCantidad;
     private javax.swing.JTextField txtNombre;
     private javax.swing.JTextField txtPrecio;

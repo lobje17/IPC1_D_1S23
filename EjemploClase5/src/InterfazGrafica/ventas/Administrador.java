@@ -8,7 +8,8 @@ import InterfazGrafica.Admin.AdminCategoria;
 import InterfazGrafica.Admin.AdminCupon;
 import InterfazGrafica.Admin.AdminProducto;
 import Objetos.Categoria.ListaCategorias;
-import Objetos.ListaCupones;
+import Objetos.Cupon.ListaCupones;
+import Objetos.Usuarios.ListUser;
 
 /**
  *
@@ -22,6 +23,7 @@ public class Administrador extends javax.swing.JFrame {
     
     ListaCupones cupones;
     ListaCategorias categorias;
+    ListUser usuarios;
     /**
      * Creates new form Administrador
      */
@@ -29,9 +31,10 @@ public class Administrador extends javax.swing.JFrame {
         initComponents();
     }
     
-    public void setListas(ListaCategorias categorias, ListaCupones cupones){
+    public void setListas(ListaCategorias categorias, ListaCupones cupones, ListUser usuarios){
         this.categorias = categorias;
         this.cupones = cupones;
+        this.usuarios = usuarios;
         addPanels();
     }
     
@@ -57,15 +60,7 @@ public class Administrador extends javax.swing.JFrame {
         this.setSize(850, 500);
         //actualizarListas();
     }
-
-    private void actualizarListas()
-    {
-        //this.panelCupon.setListas(this.cupones);
-        //this.panelCategoria.setListas(this.categorias);
-        //this.panelProductos.setListas(this.categorias);
-        this.panelProductos.llegarOpcionCategoria();
-        this.panelCategoria.llenarTabla();
-    }
+    
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -77,6 +72,7 @@ public class Administrador extends javax.swing.JFrame {
 
         tabAdmin = new javax.swing.JTabbedPane();
         jLabel1 = new javax.swing.JLabel();
+        btnCerrarSesion = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -90,25 +86,39 @@ public class Administrador extends javax.swing.JFrame {
         jLabel1.setFont(new java.awt.Font("Times New Roman", 3, 18)); // NOI18N
         jLabel1.setText("Administrado");
 
+        btnCerrarSesion.setBackground(new java.awt.Color(255, 0, 0));
+        btnCerrarSesion.setForeground(new java.awt.Color(0, 0, 0));
+        btnCerrarSesion.setText("Cerrar sesion");
+        btnCerrarSesion.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnCerrarSesionActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(tabAdmin, javax.swing.GroupLayout.DEFAULT_SIZE, 705, Short.MAX_VALUE)
-                .addContainerGap())
             .addGroup(layout.createSequentialGroup()
-                .addGap(333, 333, 333)
-                .addComponent(jLabel1)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(tabAdmin, javax.swing.GroupLayout.DEFAULT_SIZE, 705, Short.MAX_VALUE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(333, 333, 333)
+                        .addComponent(jLabel1)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(btnCerrarSesion)))
+                .addContainerGap())
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addGap(26, 26, 26)
-                .addComponent(jLabel1)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 27, Short.MAX_VALUE)
+                .addGap(25, 25, 25)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel1)
+                    .addComponent(btnCerrarSesion))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 24, Short.MAX_VALUE)
                 .addComponent(tabAdmin, javax.swing.GroupLayout.PREFERRED_SIZE, 391, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
         );
@@ -122,6 +132,33 @@ public class Administrador extends javax.swing.JFrame {
         actualizarListas();
     }//GEN-LAST:event_tabAdminStateChanged
 
+    private void btnCerrarSesionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCerrarSesionActionPerformed
+        // TODO add your handling code here:
+        salir();
+    }//GEN-LAST:event_btnCerrarSesionActionPerformed
+
+    
+    /* ******************************************************************************************************************
+     * ******************************************************************************************************************
+     * ****************************************************************************************************************** */
+    private void actualizarListas()
+    {
+        //this.panelCupon.setListas(this.cupones);
+        //this.panelCategoria.setListas(this.categorias);
+        //this.panelProductos.setListas(this.categorias);
+        this.panelProductos.llegarOpcionCategoria();
+        this.panelCategoria.llenarTabla();
+    }
+    
+    private void salir(){
+        Login login = new Login();
+        login.setListas(categorias, cupones, usuarios);
+        login.setVisible(true);
+        this.dispose();
+    }
+    /* ******************************************************************************************************************
+     * ******************************************************************************************************************
+     * ****************************************************************************************************************** */
     /**
      * @param args the command line arguments
      */
@@ -158,7 +195,9 @@ public class Administrador extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton btnCerrarSesion;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JTabbedPane tabAdmin;
     // End of variables declaration//GEN-END:variables
+
 }

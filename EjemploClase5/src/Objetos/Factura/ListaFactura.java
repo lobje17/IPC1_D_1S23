@@ -2,7 +2,7 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
-package Objetos.Producto;
+package Objetos.Factura;
 
 import java.util.ArrayList;
 
@@ -10,11 +10,12 @@ import java.util.ArrayList;
  *
  * @author lobje
  */
-public class ListaProductos {
-
-    ArrayList<Producto> productos;
+public class ListaFactura {
     
-    public ListaProductos()
+
+    ArrayList<ProductoAgregado> productos;
+    
+    public ListaFactura()
     {
         this.productos = new ArrayList<>();
     }
@@ -27,7 +28,7 @@ public class ListaProductos {
             {
                 if(cantidad > 0){
                     // Forma No.1 de agrgar elementos
-                    Producto newProduct = new Producto(nombre, precio, cantidad);
+                    ProductoAgregado newProduct = new ProductoAgregado(nombre, precio, cantidad);
                     productos.add(newProduct);
                     // Forma No. 2 de agrgar elementos
                     // productos.add(new Producto(nombre, precio)); 
@@ -61,14 +62,8 @@ public class ListaProductos {
         }
     }
     
-    public Producto Obtener(int indice){
+    public ProductoAgregado Obtener(int indice){
         return this.productos.get(indice);
-    }
-    
-    public Producto Obtener(String nombre){
-        int indice = ExistProduct(nombre);
-        if(indice>=0)return this.productos.get(indice);
-        return null;
     }
     
     public int Cantidad(){
