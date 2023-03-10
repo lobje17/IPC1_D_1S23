@@ -6,7 +6,7 @@ package InterfazGrafica.ventanas;
 
 import Objetos.Categoria.Categoria;
 import Objetos.Categoria.ListaCategorias;
-import Objetos.Cupon.ListaCupones;
+import Objetos.Cupones.ListaCupones;
 import Objetos.Factura.Factura;
 import Objetos.Factura.ProductoAgregado;
 import Objetos.Producto.ListaProductos;

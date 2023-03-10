@@ -4,10 +4,9 @@
  */
 package ejemploclase5;
 
-import InterfazGrafica.ventanas.Administrador;
 import InterfazGrafica.ventanas.Login;
 import Objetos.Categoria.ListaCategorias;
-import Objetos.Cupon.ListaCupones;
+import Objetos.Cupones.ListaCupones;
 import Objetos.Usuarios.ListUser;
 
 /**

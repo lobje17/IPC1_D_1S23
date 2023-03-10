@@ -4,8 +4,8 @@
  */
 package InterfazGrafica.Admin;
 
-import Objetos.Cupon.Cupon;
-import Objetos.Cupon.ListaCupones;
+import Objetos.Cupones.Cupon;
+import Objetos.Cupones.ListaCupones;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 

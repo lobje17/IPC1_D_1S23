@@ -5,7 +5,7 @@
 package InterfazGrafica.ventanas;
 
 import Objetos.Categoria.ListaCategorias;
-import Objetos.Cupon.ListaCupones;
+import Objetos.Cupones.ListaCupones;
 import Objetos.Usuarios.ListUser;
 import javax.swing.JOptionPane;
 

@@ -8,7 +8,7 @@ import InterfazGrafica.Admin.AdminCategoria;
 import InterfazGrafica.Admin.AdminCupon;
 import InterfazGrafica.Admin.AdminProducto;
 import Objetos.Categoria.ListaCategorias;
-import Objetos.Cupon.ListaCupones;
+import Objetos.Cupones.ListaCupones;
 import Objetos.Usuarios.ListUser;
 
 /**
