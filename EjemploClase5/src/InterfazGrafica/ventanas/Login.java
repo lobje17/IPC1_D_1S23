@@ -2,7 +2,7 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
  */
-package InterfazGrafica.ventas;
+package InterfazGrafica.ventanas;
 
 import Objetos.Categoria.ListaCategorias;
 import Objetos.Cupon.ListaCupones;

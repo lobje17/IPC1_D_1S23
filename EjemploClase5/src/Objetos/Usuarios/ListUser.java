@@ -54,4 +54,9 @@ public class ListUser {
         }
         return -1;
     }
+    
+    public Usuario obtener(String nombre){
+        int indice = existUser(nombre);
+        return this.listUsuarios.get(indice);
+    }
 }

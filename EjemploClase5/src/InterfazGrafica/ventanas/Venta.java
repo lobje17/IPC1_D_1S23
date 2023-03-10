@@ -2,7 +2,7 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
  */
-package InterfazGrafica.ventas;
+package InterfazGrafica.ventanas;
 
 import Objetos.Categoria.Categoria;
 import Objetos.Categoria.ListaCategorias;
@@ -10,6 +10,8 @@ import Objetos.Cupon.ListaCupones;
 import Objetos.Factura.Factura;
 import Objetos.Factura.ProductoAgregado;
 import Objetos.Producto.ListaProductos;
+import Objetos.Reportes.ReporteHTML;
+import Objetos.Reportes.ReportePDF;
 import Objetos.Usuarios.ListUser;
 import java.time.LocalDateTime;
 import javax.swing.JOptionPane;
@@ -69,6 +71,9 @@ public class Venta extends javax.swing.JFrame {
         jScrollPane1 = new javax.swing.JScrollPane();
         tableProductos = new javax.swing.JTable();
         btnCerrarSesion = new javax.swing.JButton();
+        jPanel2 = new javax.swing.JPanel();
+        btnGenerarPDF = new javax.swing.JButton();
+        btnGenerarHTML = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -195,6 +200,43 @@ public class Venta extends javax.swing.JFrame {
             }
         });
 
+        jPanel2.setBackground(new java.awt.Color(0, 0, 153));
+
+        btnGenerarPDF.setText("Generar factura PDF");
+        btnGenerarPDF.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnGenerarPDFActionPerformed(evt);
+            }
+        });
+
+        btnGenerarHTML.setText("Genererar factura HTML");
+        btnGenerarHTML.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnGenerarHTMLActionPerformed(evt);
+            }
+        });
+
+        javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
+        jPanel2.setLayout(jPanel2Layout);
+        jPanel2Layout.setHorizontalGroup(
+            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
+                .addGap(0, 0, Short.MAX_VALUE)
+                .addComponent(btnGenerarPDF, javax.swing.GroupLayout.PREFERRED_SIZE, 180, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(btnGenerarHTML, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addContainerGap())
+        );
+        jPanel2Layout.setVerticalGroup(
+            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(btnGenerarPDF)
+                    .addComponent(btnGenerarHTML))
+                .addContainerGap())
+        );
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -202,16 +244,19 @@ public class Venta extends javax.swing.JFrame {
             .addGroup(layout.createSequentialGroup()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addContainerGap()
-                        .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(29, 29, 29)
-                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 373, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(0, 1, Short.MAX_VALUE))
-                    .addGroup(layout.createSequentialGroup()
                         .addGap(332, 332, 332)
                         .addComponent(jLabel6)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(btnCerrarSesion)))
+                        .addComponent(btnCerrarSesion))
+                    .addGroup(layout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(29, 29, 29)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 373, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(0, 0, Short.MAX_VALUE))
+                            .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
                 .addContainerGap())
         );
         layout.setVerticalGroup(
@@ -223,8 +268,11 @@ public class Venta extends javax.swing.JFrame {
                     .addComponent(btnCerrarSesion))
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
-                    .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 326, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
@@ -253,6 +301,38 @@ public class Venta extends javax.swing.JFrame {
         // TODO add your handling code here:
         salir();
     }//GEN-LAST:event_btnCerrarSesionActionPerformed
+
+    private void btnGenerarPDFActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnGenerarPDFActionPerformed
+        // TODO add your handling code here:
+        ReportePDF pdf = new ReportePDF();
+        boolean creado = pdf.CrearDoc("Uno", fact, this.usuarios.obtener(nombreUser));
+        if(creado){
+            mensaje("Archivo creado correctamente");
+            boolean encontrado = pdf.AbrirArchivo();
+            if(!encontrado){
+                mensaje("No se encontro el archivo");
+            }
+        }
+        else{
+            mensaje("Surgio un error al tratar de crear el archivo\nverifique si ya existe uno con el mismo nombre\no lo tiene abierto");
+        }
+    }//GEN-LAST:event_btnGenerarPDFActionPerformed
+
+    private void btnGenerarHTMLActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnGenerarHTMLActionPerformed
+        // TODO add your handling code here:
+        ReporteHTML html = new ReporteHTML();
+        boolean creado = html.CrearDoc("Uno", fact, this.usuarios.obtener(nombreUser));
+        if(creado){
+            mensaje("Archivo creado correctamente");
+            boolean encontrado = html.AbrirArchivo();
+            if(!encontrado){
+                mensaje("No se encontro el archivo");
+            }
+        }
+        else{
+            mensaje("Surgio un error al tratar de crear el archivo\nverifique si ya existe uno con el mismo nombre\no lo tiene abierto");
+        }
+    }//GEN-LAST:event_btnGenerarHTMLActionPerformed
 
     
     /* ******************************************************************************************************************
@@ -419,6 +499,8 @@ public class Venta extends javax.swing.JFrame {
     private javax.swing.JButton btnAgregar;
     private javax.swing.JButton btnCerrarSesion;
     private javax.swing.JButton btnComprar;
+    private javax.swing.JButton btnGenerarHTML;
+    private javax.swing.JButton btnGenerarPDF;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
@@ -426,6 +508,7 @@ public class Venta extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JPanel jPanel1;
+    private javax.swing.JPanel jPanel2;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JComboBox<String> opcionesCategoria;
     private javax.swing.JComboBox<String> opcionesProducto;

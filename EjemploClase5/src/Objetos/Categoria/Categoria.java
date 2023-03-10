@@ -34,7 +34,4 @@ public class Categoria {
     public void setProductos(ListaProductos productos) {
         this.productos = productos;
     }
-    
-    
-    
 }

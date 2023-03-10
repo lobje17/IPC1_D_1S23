@@ -106,6 +106,10 @@ public class Factura {
         this.productos = productos;
     }
     
+    public ProductoAgregado getProductoAgregado(int indice){
+        return this.productos.get(indice);
+    }
+    
     public int cantidad(){
         return this.productos.size();
     }
