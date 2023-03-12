@@ -23,8 +23,6 @@ import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.time.LocalDateTime;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 
 /**
  *
@@ -152,8 +150,6 @@ public class ReportePDF {
                 tabla.addCell(nuevaCelda(String.valueOf(tmp.getTotal()), i));
             }
         }
-        
-        
         return tabla;
     }
     
