@@ -4,6 +4,9 @@
  */
 package ejemploclase8;
 
+import Hijos.HiloHeredado;
+import Hijos.HiloImplementado;
+
 /**
  *
  * @author lobje
@@ -15,6 +18,8 @@ public class EjemploClase8 {
      */
     public static void main(String[] args) {
         // TODO code application logic here
+        HiloHeredado hiloH = new HiloHeredado();
+        HiloImplementado hiloI = new HiloImplementado();
     }
     
 }
