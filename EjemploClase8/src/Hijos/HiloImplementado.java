@@ -20,7 +20,9 @@ public class HiloImplementado implements Runnable{
     
     @Override
     public void run() {
-        System.out.println("Hilo implementado");
+        for (int i = 0; i < 100; i++) {
+            System.out.println("Hilo implementado " +i);
+        }
     }
     
 }
