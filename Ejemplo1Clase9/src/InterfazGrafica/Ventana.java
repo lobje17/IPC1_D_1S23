@@ -20,6 +20,7 @@ public class Ventana extends javax.swing.JFrame {
     int fichaX;
     int fichaO;
     boolean tipoFicha;
+    int velocidad;
     /**
      * Creates new form Ventana
      */
@@ -31,6 +32,7 @@ public class Ventana extends javax.swing.JFrame {
         this.fichaO = 1;
         this.fichaX = 1;
         this.tipoFicha = true;
+        this.velocidad = 25;
     }
 
     /**
@@ -66,36 +68,47 @@ public class Ventana extends javax.swing.JFrame {
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setPreferredSize(new java.awt.Dimension(950, 560));
         setResizable(false);
+        getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         O1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/o.jpg"))); // NOI18N
         O1.setPreferredSize(new java.awt.Dimension(100, 100));
+        getContentPane().add(O1, new org.netbeans.lib.awtextra.AbsoluteConstraints(801, 51, -1, -1));
 
         O2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/o.jpg"))); // NOI18N
         O2.setPreferredSize(new java.awt.Dimension(100, 100));
+        getContentPane().add(O2, new org.netbeans.lib.awtextra.AbsoluteConstraints(801, 163, -1, -1));
 
         O3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/o.jpg"))); // NOI18N
         O3.setPreferredSize(new java.awt.Dimension(100, 100));
+        getContentPane().add(O3, new org.netbeans.lib.awtextra.AbsoluteConstraints(801, 281, -1, -1));
 
         O4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/o.jpg"))); // NOI18N
         O4.setPreferredSize(new java.awt.Dimension(100, 100));
+        getContentPane().add(O4, new org.netbeans.lib.awtextra.AbsoluteConstraints(695, 124, -1, -1));
 
         O5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/o.jpg"))); // NOI18N
         O5.setPreferredSize(new java.awt.Dimension(100, 100));
+        getContentPane().add(O5, new org.netbeans.lib.awtextra.AbsoluteConstraints(695, 242, -1, -1));
 
         X1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/x.jpg"))); // NOI18N
         X1.setPreferredSize(new java.awt.Dimension(100, 100));
+        getContentPane().add(X1, new org.netbeans.lib.awtextra.AbsoluteConstraints(12, 48, -1, -1));
 
         X2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/x.jpg"))); // NOI18N
         X2.setPreferredSize(new java.awt.Dimension(100, 100));
+        getContentPane().add(X2, new org.netbeans.lib.awtextra.AbsoluteConstraints(12, 166, -1, -1));
 
         X3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/x.jpg"))); // NOI18N
         X3.setPreferredSize(new java.awt.Dimension(100, 100));
+        getContentPane().add(X3, new org.netbeans.lib.awtextra.AbsoluteConstraints(12, 284, -1, -1));
 
         X4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/x.jpg"))); // NOI18N
         X4.setPreferredSize(new java.awt.Dimension(100, 100));
+        getContentPane().add(X4, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 139, -1, -1));
 
         X5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/x.jpg"))); // NOI18N
         X5.setPreferredSize(new java.awt.Dimension(100, 100));
+        getContentPane().add(X5, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 245, -1, -1));
 
         btnOp1.setText("Op 1");
         btnOp1.addActionListener(new java.awt.event.ActionListener() {
@@ -103,6 +116,7 @@ public class Ventana extends javax.swing.JFrame {
                 btnOp1ActionPerformed(evt);
             }
         });
+        getContentPane().add(btnOp1, new org.netbeans.lib.awtextra.AbsoluteConstraints(344, 407, -1, -1));
 
         btnOp2.setText("Op 2");
         btnOp2.addActionListener(new java.awt.event.ActionListener() {
@@ -110,6 +124,7 @@ public class Ventana extends javax.swing.JFrame {
                 btnOp2ActionPerformed(evt);
             }
         });
+        getContentPane().add(btnOp2, new org.netbeans.lib.awtextra.AbsoluteConstraints(412, 407, -1, -1));
 
         btnOp3.setText("Op 3");
         btnOp3.addActionListener(new java.awt.event.ActionListener() {
@@ -117,6 +132,7 @@ public class Ventana extends javax.swing.JFrame {
                 btnOp3ActionPerformed(evt);
             }
         });
+        getContentPane().add(btnOp3, new org.netbeans.lib.awtextra.AbsoluteConstraints(487, 407, -1, -1));
 
         btnOp4.setText("Op 4");
         btnOp4.addActionListener(new java.awt.event.ActionListener() {
@@ -124,6 +140,7 @@ public class Ventana extends javax.swing.JFrame {
                 btnOp4ActionPerformed(evt);
             }
         });
+        getContentPane().add(btnOp4, new org.netbeans.lib.awtextra.AbsoluteConstraints(344, 443, -1, -1));
 
         btnOp5.setText("Op 5");
         btnOp5.addActionListener(new java.awt.event.ActionListener() {
@@ -131,6 +148,7 @@ public class Ventana extends javax.swing.JFrame {
                 btnOp5ActionPerformed(evt);
             }
         });
+        getContentPane().add(btnOp5, new org.netbeans.lib.awtextra.AbsoluteConstraints(412, 443, -1, -1));
 
         btnOp6.setText("Op 6");
         btnOp6.addActionListener(new java.awt.event.ActionListener() {
@@ -138,6 +156,7 @@ public class Ventana extends javax.swing.JFrame {
                 btnOp6ActionPerformed(evt);
             }
         });
+        getContentPane().add(btnOp6, new org.netbeans.lib.awtextra.AbsoluteConstraints(487, 443, -1, -1));
 
         btnOp7.setText("Op 7");
         btnOp7.addActionListener(new java.awt.event.ActionListener() {
@@ -145,6 +164,7 @@ public class Ventana extends javax.swing.JFrame {
                 btnOp7ActionPerformed(evt);
             }
         });
+        getContentPane().add(btnOp7, new org.netbeans.lib.awtextra.AbsoluteConstraints(344, 479, -1, -1));
 
         btnOp8.setText("Op 8");
         btnOp8.addActionListener(new java.awt.event.ActionListener() {
@@ -152,6 +172,7 @@ public class Ventana extends javax.swing.JFrame {
                 btnOp8ActionPerformed(evt);
             }
         });
+        getContentPane().add(btnOp8, new org.netbeans.lib.awtextra.AbsoluteConstraints(412, 479, -1, -1));
 
         btnOp9.setText("Op 9");
         btnOp9.addActionListener(new java.awt.event.ActionListener() {
@@ -159,6 +180,7 @@ public class Ventana extends javax.swing.JFrame {
                 btnOp9ActionPerformed(evt);
             }
         });
+        getContentPane().add(btnOp9, new org.netbeans.lib.awtextra.AbsoluteConstraints(487, 479, -1, -1));
 
         jPanel1.setBackground(new java.awt.Color(0, 153, 0));
 
@@ -173,158 +195,58 @@ public class Ventana extends javax.swing.JFrame {
             .addGap(0, 352, Short.MAX_VALUE)
         );
 
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
-        getContentPane().setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(X2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(X3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(X1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(18, 18, 18)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(X4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(X5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(50, 50, 50)
-                        .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 55, Short.MAX_VALUE)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(O4, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(O5, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(O2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(O3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(O1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(56, 56, 56))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(332, 332, 332)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(layout.createSequentialGroup()
-                                .addComponent(btnOp7)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(btnOp8)
-                                .addGap(18, 18, 18)
-                                .addComponent(btnOp9))
-                            .addGroup(layout.createSequentialGroup()
-                                .addComponent(btnOp4)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(btnOp5)
-                                .addGap(18, 18, 18)
-                                .addComponent(btnOp6))
-                            .addGroup(layout.createSequentialGroup()
-                                .addComponent(btnOp1)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(btnOp2)
-                                .addGap(18, 18, 18)
-                                .addComponent(btnOp3)))
-                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
-        );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(37, 37, 37)
-                        .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(48, 48, 48)
-                        .addComponent(X1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(18, 18, 18)
-                        .addComponent(X2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(18, 18, 18)
-                        .addComponent(X3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(139, 139, 139)
-                        .addComponent(X4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(X5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(51, 51, 51)
-                        .addComponent(O1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(O2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(18, 18, 18)
-                        .addComponent(O3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(124, 124, 124)
-                        .addComponent(O4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(18, 18, 18)
-                        .addComponent(O5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addGap(18, 18, 18)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(btnOp1)
-                    .addComponent(btnOp2)
-                    .addComponent(btnOp3))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(btnOp4)
-                    .addComponent(btnOp5)
-                    .addComponent(btnOp6))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(btnOp7)
-                    .addComponent(btnOp8)
-                    .addComponent(btnOp9))
-                .addContainerGap(57, Short.MAX_VALUE))
-        );
+        getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 40, -1, -1));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnOp1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnOp1ActionPerformed
         // TODO add your handling code here:
-        siguienteFicha(10, 300, 50, 50, 50);
+        siguienteFicha(10, 300, 50, 50, velocidad);
     }//GEN-LAST:event_btnOp1ActionPerformed
 
     private void btnOp2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnOp2ActionPerformed
         // TODO add your handling code here:
-        siguienteFicha(10, 410, 50, 50, 50);
+        siguienteFicha(10, 410, 50, 50, velocidad);
     }//GEN-LAST:event_btnOp2ActionPerformed
 
     private void btnOp3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnOp3ActionPerformed
         // TODO add your handling code here:
-        siguienteFicha(10, 520, 50, 50, 50);
+        siguienteFicha(10, 520, 50, 50, velocidad);
     }//GEN-LAST:event_btnOp3ActionPerformed
 
     private void btnOp4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnOp4ActionPerformed
         // TODO add your handling code here:
-        siguienteFicha(10, 300, 50, 160, 50);
+        siguienteFicha(10, 300, 50, 160, velocidad);
     }//GEN-LAST:event_btnOp4ActionPerformed
 
     private void btnOp5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnOp5ActionPerformed
         // TODO add your handling code here:
-        siguienteFicha(10, 410, 50, 160, 50);
+        siguienteFicha(10, 410, 50, 160, velocidad);
     }//GEN-LAST:event_btnOp5ActionPerformed
 
     private void btnOp6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnOp6ActionPerformed
         // TODO add your handling code here:
-        siguienteFicha(10, 520, 50, 160, 50);
+        siguienteFicha(10, 520, 50, 160, velocidad);
     }//GEN-LAST:event_btnOp6ActionPerformed
 
     private void btnOp7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnOp7ActionPerformed
         // TODO add your handling code here:
-        siguienteFicha(10, 300, 50, 270, 50);
+        siguienteFicha(10, 300, 50, 270, velocidad);
     }//GEN-LAST:event_btnOp7ActionPerformed
 
     private void btnOp8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnOp8ActionPerformed
         // TODO add your handling code here:
-        siguienteFicha(10, 410, 50, 270, 50);
+        siguienteFicha(10, 410, 50, 270, velocidad);
     }//GEN-LAST:event_btnOp8ActionPerformed
 
     private void btnOp9ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnOp9ActionPerformed
         // TODO add your handling code here:
-        siguienteFicha(10, 520, 50, 270, 50);
+        siguienteFicha(10, 520, 50, 270, velocidad);
     }//GEN-LAST:event_btnOp9ActionPerformed
     /* *********************************************************************************************************
      * *********************************************************************************************************
       * ******************************************************************************************************** */
-    
-    
     private void SeleccionarFichaX(int posInicialX, int posFinalX, int posInicialY, int posFinalY, int veocidad){
         JLabel tmp = X1;
         switch (fichaX) {
@@ -347,7 +269,6 @@ public class Ventana extends javax.swing.JFrame {
         mf.moverFiccha(tmp, posInicialX, posFinalX, posInicialY, posFinalY, veocidad);
         fichaX++;
     }
-    
     
     private void SeleccionarFichaO(int posInicialX, int posFinalX, int posInicialY, int posFinalY, int veocidad){
         JLabel tmp = O1;
