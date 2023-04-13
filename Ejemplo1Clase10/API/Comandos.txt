@@ -1,0 +1,9 @@
+
+npx create-react-app frontend_react
+ng new frontend_angular
+npm install --save-dev nodemon
+npm install --save-dev morgan
+
+
+    "start": "node src/index.js",
+    "dev" : "nodemon src/index.js",
