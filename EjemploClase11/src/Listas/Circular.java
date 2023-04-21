@@ -10,68 +10,68 @@ import Handlers.EstructuraDeDatos;
  *
  * @author lobje
  */
-public class ListaImagen  extends EstructuraDeDatos{
-    
-    private Imagen inicio;
-    
-    public ListaImagen() {
+public class Circular  extends EstructuraDeDatos{
+
+    private NodoDoble inicio;
+    public Circular() {
         this.inicio = null;
     }
     
     @Override
     public void add(Object e) {
-        Imagen newImagen = (Imagen)e;
+        
         if(inicio==null)
         {
-            newImagen.setBack(newImagen);
-            newImagen.setNext(newImagen);
-            inicio = newImagen;
+            NodoDoble tmp = new  NodoDoble((int)e);
+            tmp.setBack(tmp);
+            tmp.setNext(tmp);
+            inicio = tmp;
             
-            nodoAgregado(newImagen.getNombre());
+            index++;
+            Mensaje("El elemento con valor "+e +" se agrego correctamente");
         }
         else
         {
-            Imagen actual = inicio;
+            NodoDoble tmp = inicio;
             
             if(index==1){
-                    if(!actual.getNombre().equals(newImagen.getNombre())){
-                        newImagen.setBack(actual);
-                        newImagen.setNext(actual);
-                        actual.setNext(newImagen);
-                        actual.setBack(newImagen);
+                    if(tmp.getValor()!=(int)e){
+                        NodoDoble NewDato = new  NodoDoble((int)e, tmp, tmp);                    
+                        tmp.setNext(NewDato);
+                        tmp.setBack(NewDato);
 
-                        nodoAgregado(newImagen.getNombre());
+                        index++;
+                        Mensaje("El elemento con valor "+e +" se agrego correctamente");
                     }
                     else {
-                        Mensaje("El elemento con valor "+newImagen.getNombre() +" ya existe en la lista");
+                        Mensaje("El elemento con valor "+e +" ya existe en la lista");
                     }
             }
             else
             {
                 for (int i = 0; i < this.index; i++) {
-                    if(actual !=null){
-                        if(!actual.getNombre().equals(newImagen.getNombre())){
-                            if(index==i+1){
-                                newImagen.setNext(actual.getNext());
-                                newImagen.setBack(actual);
-                                actual.getNext().setBack(newImagen);
-                                actual.setNext(newImagen);
+                    if(tmp !=null){
+                        if(tmp.getValor()!=(int)e){
+                            if(index==i+1){     
+                                NodoDoble NewDato = new  NodoDoble((int)e, tmp.getNext(), tmp);                    
+                                tmp.getNext().setBack(NewDato);
+                                tmp.setNext(NewDato);
+
+                                index++;
+                                Mensaje("El elemento con valor "+e +" se agrego correctamente");
                             }
-                            else actual = actual.getNext();
+                            else{
+                                 tmp = tmp.getNext();
+                            }
                         }
                         else {
-                            Mensaje("El elemento con valor "+newImagen.getNombre() +" ya existe en la lista");
+                            Mensaje("El elemento con valor "+e +" ya existe en la lista");
                             break;
                         }
                     }
                 }
             }
         }
-    }
-    
-    private void nodoAgregado(String nombre){
-        index++;
-        Mensaje("El elemento con valor "+nombre +" se agrego correctamente");
     }
 
     @Override
@@ -106,57 +106,55 @@ public class ListaImagen  extends EstructuraDeDatos{
 
     @Override
     public void delete(Object e) {
-        String nombre = (String)e;
         if(!vacia()) {
             boolean eliminado = false;
-            Imagen actual = inicio;
+            NodoDoble tmp = inicio;
 
             for (int i = 0; i < this.index; i++) {
-                if(actual.getNombre().equals(nombre)){
-                    actual.getBack().setNext(actual.getNext());
-                    actual.getNext().setBack(actual.getBack());
-                    Mensaje("El elemento con valor "+nombre+" se ha eliminado");
+                if(tmp.getValor()==(int)e){
+                    tmp.getBack().setNext(tmp.getNext());
+                    tmp.getNext().setBack(tmp.getBack());
+                    Mensaje("El elemento con valor "+e+" se ha eliminado");
                     index--;
                     eliminado = true;
                     break;
                 }
-                else actual = actual.getNext();
+                else tmp = tmp.getNext();
             }
             
-            if(!eliminado) Mensaje("No se encontro el elemento con el valor " + nombre);
+            if(!eliminado) Mensaje("No se encontro el elemento con el valor " + e);
         }
     }
     
     public void mostrar(){
         if(!vacia()) {
-            Imagen actual = inicio;
+            NodoDoble tmp = inicio;
 
             for (int i = 0; i < this.index; i++) {
-                //Mensaje("Elemento No. " + (i+1)+ " es "+actual.getValor());
-                System.out.print(actual.getNombre()+" <--> ");
-                actual = actual.getNext();
+                //Mensaje("Elemento No. " + (i+1)+ " es "+tmp.getValor());
+                System.out.print(tmp.getValor()+" <--> ");
+                tmp = tmp.getNext();
             }
             System.out.print("null");
             System.out.println("");
         }
     }
     
-    public void modificar(String nombre, String ruta){
+    public void modificar(int val, int newVal){
         if(!vacia()) {
             boolean encontrado = false;
-            Imagen actual = inicio;
-            
+            NodoDoble tmp = inicio;
             for (int i = 0; i < this.index; i++) {
-                if(actual.getNombre().equals(nombre)){
-                    actual.setRuta(ruta);
-                    Mensaje("El elemento con nombre "+nombre+" se ha cambiado la ruta de almacenamiento");
+                if(tmp.getValor()==(int)val){
+                    tmp.setValor(newVal);
+                    Mensaje("El elemento con valor "+val+" se ha cambiado al valor "+newVal);
                     encontrado = true;
                     break;
                 }
-                else actual = actual.getNext();
+                else tmp = tmp.getNext();
             }
             
-            if(!encontrado) Mensaje("No se encontro el elemento con el nombre " + nombre);
+            if(!encontrado) Mensaje("No se encontro el elemento con el valor " + val);
         }
     }
     
