@@ -14,13 +14,13 @@ import javax.imageio.ImageIO;
  *
  * @author lobje
  */
-public class BlancoNegro extends ImageHandler{
+public abstract class CambiarColor extends ImageHandler{
     BufferedImage jpg;
     BufferedImage bmp;
     File tmp;
     String nombre;
     
-    public BlancoNegro(String filename) {
+    public CambiarColor(String filename) {
         super(filename);
         this.jpg = null;
         this.bmp = null;
@@ -33,7 +33,7 @@ public class BlancoNegro extends ImageHandler{
     public void readFile() throws Exception {
         File file = new File(getFileName());
         jpg = ImageIO.read(file);
-        tmp = new File("./btmTem.bmp");
+        tmp = new File("./Temp/btmTemp.bmp");
         ImageIO.write(jpg, "bmp", tmp);
         bmp = ImageIO.read(tmp);
     }
@@ -43,14 +43,12 @@ public class BlancoNegro extends ImageHandler{
         for (int i = 0; i < bmp.getWidth(); i++) {
             for (int j = 0; j < bmp.getHeight(); j++) {
                 Color color = new Color(bmp.getRGB(i, j));
-                //int promedio = (color.getBlue()+color.getGreen()+color.getRed())/3;
-                int promedio = color.getBlue();
-                Color NewColor = new Color(promedio, 0, 0);
-                bmp.setRGB(i, j, NewColor.getRGB());
+                repintar(i, j, color);
             }
         }
-        ImageIO.write(bmp, "jpg", new File("BlancoNegro"+".jpg"));
-        tmp.delete();
+        ImageIO.write(bmp, "jpg", new File("./Imagen/BlancoNegro"+".jpg"));
+        //tmp.delete();
     }
     
+    public abstract void repintar(int i, int j, Color color);
 }

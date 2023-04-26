@@ -1,6 +1,7 @@
 package ListasEnlazadas;
 
 import Handlers.EstructuraDeDatos;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -14,11 +15,13 @@ public class ListaImagen extends EstructuraDeDatos{
     /* Variable que se usara para el inicio de la lista */
     private ImagenP start;
     private final String msj1;
+    private ImagenP recorrido;
     
     
     public ListaImagen(){
         this.index = 0;
         this.start = null;
+        this.recorrido = null;
         this.msj1 = "La imagen con el nombre ";
         this.nombre = "";
         
@@ -67,6 +70,7 @@ public class ListaImagen extends EstructuraDeDatos{
                     start.getBack().setNext(newImage);
                     start.setBack(newImage);
                 }
+                ImagenAgregada(newImage.getName());
             }
         }
         /* Si ya existe se muentra un mensaje */
@@ -124,8 +128,20 @@ public class ListaImagen extends EstructuraDeDatos{
      * ********************************************************************** */
     @Override
     public Object getNext() {
-        return null;
+        if(recorrido==null) recorrido = start;
+        recorrido = recorrido.getNext();
+        //System.out.println("Nombre "+recorrido.getName());
+        return recorrido;
     }
+    
+    
+    public Object getBack() {
+        if(recorrido==null) recorrido = start;
+        recorrido = recorrido.getBack();
+        //System.out.println("Nombre "+recorrido.getName());
+        return recorrido;
+    }
+
 
     /* ********************************************************************** *
      * ********************************************************************** *
@@ -229,7 +245,17 @@ public class ListaImagen extends EstructuraDeDatos{
      * ********************************************************************** *
      * ********************************************************************** */
     private void Mensaje(String m){
-        System.out.println(m);
+        //System.out.println(m);
+        JOptionPane.showMessageDialog(null, m);
     }
     
+    
+    public void mostrar(){
+        ImagenP tmp = start;
+        for (int i = 0; i < index; i++) {
+            
+            System.out.println("Nombre "+tmp.getName());
+            tmp = tmp.getNext();
+        }
+    }
 }

@@ -154,13 +154,13 @@ public class Simple extends EstructuraDeDatos{
                 if(tmp.getValor()==(int)val){
                     tmp.setValor(newVal);
                     Mensaje("El elemento con valor "+val+" se ha cambiado al valor "+newVal);
-                    eliminado = true;
+                    //eliminado = true;
                     break;
                 }
                 else tmp = tmp.next;
             }
             
-            if(!eliminado) Mensaje("No se encontro el elemento con el valor " + val);
+            //if(!eliminado) Mensaje("No se encontro el elemento con el valor " + val);
         }
     }
 }
