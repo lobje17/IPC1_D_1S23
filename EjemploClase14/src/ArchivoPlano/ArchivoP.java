@@ -2,8 +2,9 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
-package Archivos;
+package ArchivoPlano;
 
+import Listas.ListaUsuarios;
 import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileReader;
@@ -14,9 +15,10 @@ import java.io.IOException;
  *
  * @author lobje
  */
-public class AccionesArchivo {
+public class ArchivoP {
     
     String extensionTxt = ".txt";
+    
     public void Crear(String nombreArchivo){
         try {
             File f = new File(nombreArchivo+extensionTxt);
@@ -31,36 +33,31 @@ public class AccionesArchivo {
         }
     }
     
-    public void LeerLinea(String nombreArchivo){
+    public void cargarUsuarion(String nombreArchivo, ListaUsuarios usuarios){
         try{
             File f = new File(nombreArchivo+extensionTxt);
-            FileReader fr = new FileReader(f);
-            BufferedReader brf = new BufferedReader(fr);
-            
-            String contenido = brf.readLine();
-            
-            while(contenido!=null){
-                System.out.println(contenido);
-                contenido = brf.readLine();
+            if(f.exists()){
+                FileReader fr = new FileReader(f);
+                BufferedReader brf = new BufferedReader(fr);
+
+                String contenido = brf.readLine();
+
+                while(contenido!=null){
+                    System.out.println(contenido);
+                    AddUser(contenido, usuarios);
+                    
+                    contenido = brf.readLine();
+                }
+                fr.close(); 
             }
-            fr.close();            
+            else mensaje("El archivo con nombre "+nombreArchivo+" no existe");
         } catch (IOException e) {
         }
     }
     
-    public void Leer(String nombreArchivo){
-        try{
-            File f = new File(nombreArchivo+extensionTxt);
-            FileReader fr = new FileReader(f);
-            int contenido = fr.read();
-            System.out.println("Contenido " + contenido);
-            while(contenido!=-1){
-                System.out.println((char)contenido);
-                contenido = fr.read();
-            }
-            fr.close();            
-        } catch (IOException e) {
-        }
+    private void AddUser(String contenido, ListaUsuarios usuarios){
+        String datos [] = contenido.split(",");
+        usuarios.add(datos[0], datos[1], Integer.valueOf(datos[2]), datos[3], datos[4]);
     }
     
     public void Escribir(String nombreArchivo, String contenido){
@@ -72,5 +69,9 @@ public class AccionesArchivo {
             fw.close();
         } catch (IOException ex) {
         }
+    }
+    
+    private void mensaje(String msj){
+        System.out.println(msj);
     }
 }

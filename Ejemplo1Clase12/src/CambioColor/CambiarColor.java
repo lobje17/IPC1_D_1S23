@@ -47,6 +47,15 @@ public abstract class CambiarColor extends ImageHandler{
             }
         }
         ImageIO.write(bmp, "jpg", new File("./Imagen/BlancoNegro"+".jpg"));
+        
+        
+        for (int i = 0; i < bmp.getWidth(); i++) {
+            for (int j = 0; j < bmp.getHeight(); j++) {
+                Color color = new Color(bmp.getRGB(i, j));
+                repintar(i, j, color);
+            }
+        }
+        ImageIO.write(bmp, "jpg", new File("./Imagen/BlancoNegro"+".jpg"));
         //tmp.delete();
     }
     
